@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         if (result){
             let winner = result === 'x' ? playerX : playerY;
-            alert(playerX.name + ' wins!');
+            alert(winner + ' wins!');
         }
         else {
             alert("It's a tie!")
