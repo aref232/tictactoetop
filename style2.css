@@ -1,0 +1,27 @@
+.btn {
+    box-sizing: border-box; /* Include padding and border in total size */
+    width: 5rem; /* Fixed width */
+    height: 5rem; /* Fixed height */
+    font-size: 2rem; 
+    cursor: pointer; /* Change cursor to pointer */
+    outline: none; /* Remove focus outline */
+    border: 1px solid black; /* Border for visibility */
+    background-color: aliceblue; /* Background color */
+    margin: 0; /* Remove margin to prevent shifting */
+    display: inline-block; /* Maintain button layout */
+    vertical-align: top; /* Align buttons to the top */
+    transition: background-color 0.2s; /* Smooth background change */
+}
+
+.btn:active {
+    background-color: #ddd; /* Change background on click */
+}
+
+.container {
+    margin: 0 auto;
+    width: 15rem;
+    margin-top: 3rem;
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    /* gap: 5px; Space between buttons */
+}

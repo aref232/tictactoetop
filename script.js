@@ -27,49 +27,67 @@ document.addEventListener('DOMContentLoaded', ()=>{
         };
         return null 
     }
+    
+    function displayController(){
+        let container = document.querySelector('.container');
+        for (let i = 0; i < 9; i++){
+            let square = document.createElement('button');
+            square.classList.add('btn');
+            container.append(square);
+        }
 
-    // function checkTie(gameboard){
-    //     if gameboard.every
-    // }
+    }
 
-    (function game(player1, player2){
+
+    function game(player1, player2){
         let gameboard = Array(9).fill(null);
         const playerX = createPlayer(player1);
-        const playerY = createPlayer(player2);
+        const playerO = createPlayer(player2);
 
         let xIsNext = true;
         let result = null;
-        while (result === null){
-            let move = parseInt(prompt('Input next move(0-8):'));
+        let squares = Array.from(document.querySelectorAll('.btn'));
+        for (let [index, square] of squares.entries()){
+            square.addEventListener('click', () => {
+                console.log('meow');
+                // Check validity
+                if (gameboard.every(square => square !== null) || result){
+                    return;
+                }
+                if (gameboard[index]){
+                    alert('Unavailable Square')
+                    return;
+                }
+                
+                gameboard[index] = xIsNext ? 'x' : 'o';
+                square.innerHTML = xIsNext ? 'x' : 'o';
+
+                result = checkWinner(gameboard);
+                xIsNext = !xIsNext;
+                
+                if (result){
+                    let winner = result === 'x' ? playerX : playerO;
+                    alert(winner.name + ' wins!');
+                }
+                
+                if (gameboard.every(square => square !== null) && !result){
+                    alert("It's a tie!");
+                    return
+                }
+            })
+    
+            // else {
+            //     alert("It's a tie!")
+            // }
+            }
             
             // Check move validity
-            if (gameboard[move]){
-                alert('Unavailable Space')
-                continue;
-            }
-            else if (move < 0 || move > 8){
-                alert('Choose a proper value')
-                continue;
-            }
-            else {
-                gameboard[move] = xIsNext ? 'x' : 'y';
-            }
 
-            result = checkWinner(gameboard);
-            xIsNext = !xIsNext;
-            
-            if (gameboard.every(square => square !== null)){
-                break;
-            }
-        }
+    }
+    // ('Aref', 'Omar')
 
-        if (result){
-            let winner = result === 'x' ? playerX : playerY;
-            alert(winner + ' wins!');
-        }
-        else {
-            alert("It's a tie!")
-        }
+    displayController();
+    game('aref', 'omar');
+    
 
-    })('Aref', 'Omar')
 })

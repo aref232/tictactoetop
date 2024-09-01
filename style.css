@@ -1,0 +1,33 @@
+.btn {
+    width: 60px; /* Set a fixed width */
+    height: 60px; /* Set a fixed height */
+    font-size: 24px; /* Adjust font size for better visibility */
+    margin: 5px; /* Add some spacing */
+    cursor: pointer; /* Change cursor to pointer */
+    outline: none; /* Remove focus outline */
+    border: 2px solid #ccc; /* Add border for visibility */
+    background-color: #f0f0f0; /* Background color */
+    transition: background-color 0.2s; /* Smooth background change */
+}
+
+.btn:active {
+    background-color: #ddd; /* Change background on click */
+}
+
+.container {
+    margin: 0 auto;
+    width: 15rem;
+    margin-top: 3rem;
+    font-size: 0;
+}
+
+.btn {
+    background-color: aliceblue;
+    border: black solid 1px;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem; 
+}
